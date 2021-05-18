@@ -1,0 +1,35 @@
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Chela+One&display=swap" rel="stylesheet">
+
+<h1 class="text-center mt-3">My Notes</h1>
+<p class="text-center mt-4">
+  <%= link_to 'add note', new_article_path, class: "btn btn-dark" %>
+</p>
+
+<div class="container">
+<% @articles.each do |article| %>
+  <div class="row justify-content-md-center">
+    <div class="col-8 mt-3">
+      <div class="card text-center shadow mb-10 bg-white rounded">
+        <div class="card-header font-italic" id="head">
+          by Louvien Abrigo
+        </div>
+        <div class="card-body">
+          <h5 class="card-title text-primary" id="title"><%=article.name%></h5>
+          <p class="card-text"><%= truncate(article.body, length: 100) %></p>
+          <%= link_to "View", article_path(article), class: "btn btn-success" %>
+          <%= link_to "Edit", edit_article_path(article), class: "btn btn-info" %>
+          <%= link_to "Delete", article_path(article), class: "btn btn-danger", method: :delete, data: {confirm: "Are you sure?"} %>
+        </div>
+        <div class="card-footer text-muted" id="head">
+          <small>Created <%= time_ago_in_words(article.created_at) %> ago, 
+          edited <%= time_ago_in_words(article.updated_at) %> ago</small>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+</div>
+</div>

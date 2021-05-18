@@ -10,6 +10,29 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require bootstrap
  *= require_tree .
  *= require_self
  */
+
+h1 {
+    color: black;
+    font-family: 'Pacifico', cursive;
+}
+
+#head{
+    background-color: black;
+    color: #00ff4c;
+}
+
+#title, #hi {
+    font-family: 'Chela One', cursive;
+    font-size: 2em;
+}
+
+ul {
+    color: red;
+    font-size: large;
+    list-style:none;
+    padding:0
+}

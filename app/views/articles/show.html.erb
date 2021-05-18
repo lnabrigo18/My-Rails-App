@@ -1,0 +1,29 @@
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Chela+One&display=swap" rel="stylesheet">
+
+<div id="page-content">
+  <h1 class="text-center mt-4 text-primary"><%= @article.name%></h1>
+
+  <div class="container">
+    <div class="row justify-content-md-center">
+      <div class="col-8 mt-4">
+        <div class="card text-center shadow mb-5 bg-white rounded">
+          <div class="card-header font-italic" id="head">
+            by Louvien Abrigo
+          </div>
+          <div class="card-body">
+            <div class="card-text text-left"><%= simple_format(@article.body) %></div>
+            <%= link_to 'Home', articles_path, class: "btn btn-dark" %>
+            <%= link_to "Edit", edit_article_path(@article), class: "btn btn-info" %>
+            <%= link_to "Delete", article_path(@article), class: "btn btn-danger", method: :delete, data: {confirm: "Are you sure?"} %>
+            </div>
+          <div class="card-footer text-muted" id="head">
+            <small>Created <%= time_ago_in_words(@article.created_at) %> ago, 
+            edited <%= time_ago_in_words(@article.updated_at) %> ago</small>
+          </div>
+      </div>
+    </div>
+  </div>
+</div> 
